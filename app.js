@@ -15,7 +15,7 @@ app.use(Express.json());
 
 const controllers = require('./controllers');
 
-app.use('/', controllers.usercontroller)
+app.use('/auth', controllers.usercontroller)
 app.use('/admin', controllers.admincontroller)
 app.use('/review', controllers.reviewcontroller)
 app.use('/product', controllers.productscontroller)

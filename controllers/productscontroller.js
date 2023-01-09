@@ -135,6 +135,25 @@ router.get('/all', async (req, res) => {
     }
 })
 
+router.get('/:id', async (req, res) => {
+    const id = req.params.id
+    try {
+        const product = await models.ProductModel.findOne({
+            where: {
+                id: id
+            }
+        })
+        res.status(200).send({
+            message: 'product recieved',
+            product: product
+        })
+    } catch (err) {
+        res.status(500).json({
+            message: 'could not retrive product'
+        })
+    }
+})
+
 
 //// END////////////////////////////////////////////////////////
 
